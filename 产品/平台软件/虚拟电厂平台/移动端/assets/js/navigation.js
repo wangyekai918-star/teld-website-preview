@@ -142,21 +142,24 @@ function mountNavigation(host, signal, mountDrawer) {
     ["products/solar-storage", "../../光储充放一体化平台/index.html"],
     ["products/vpp", "../index.html"]
   ]);
-  function modelCard(name, caption = '', groupStart = '') {
+  function modelCard(name) {
     const file = cardArt.get(name);
     const badge = name === '充电运营平台' ? '<small class="tn-demo">演示产品</small>' : '';
     const productUrl = productPages.get(file);
     const link = productUrl ? 'href="' + productUrl + '"' : 'aria-disabled="true"';
-    return '<a class="tn-model" '+groupStart+' '+link+'><div class="tn-picture"><img src="'+base+'assets/nav-photos/'+file+'.webp" alt="">'+sourceDot(file)+badge+'</div>'+
-      '<span class="tn-caption"><strong>'+name+'</strong>'+(caption ? '<small>'+caption+'</small>' : '')+'</span></a>';
+    return '<a class="tn-model" '+link+'><div class="tn-picture"><img src="'+base+'assets/nav-photos/'+file+'.webp" alt="">'+sourceDot(file)+badge+'</div>'+
+      '<span class="tn-caption"><strong>'+name+'</strong></span></a>';
   }
   function productContent() {
-    const cards = family === 1
-      ? catalog.platforms.map(name => modelCard(name))
-      : catalog.groups.flatMap(([title,items],g) => items.map((name,i) =>
-          modelCard(name,title,i===0 ? 'id="tn-group-'+g+'" data-group-start="'+g+'"' : '')
-        ));
-    return '<div class="tn-cards">'+cards.join('')+'</div>';
+    if (family === 1) {
+      return '<div class="tn-cards">'+catalog.platforms.map(modelCard).join('')+'</div>';
+    }
+    return '<div class="tn-equipment-groups">'+catalog.groups.map(([title, items], i) =>
+      '<section class="tn-equipment-group" aria-labelledby="tn-group-'+i+'">'+
+        '<h2 id="tn-group-'+i+'" data-group-start="'+i+'">'+title+'</h2>'+
+        '<div class="tn-cards">'+items.map(modelCard).join('')+'</div>'+
+      '</section>'
+    ).join('')+'</div>';
   }
   function directoryCard(name, desc, iconName) {
     const artwork = '<svg class="tn-solution-icon" aria-hidden="true" focusable="false"><use href="#'+iconName+'"></use></svg>';

@@ -96,13 +96,13 @@
 #site-nav .tn-panel:has(.tn-mega) .tn-main {scrollbar-width:none}
 #site-nav .tn-panel:has(.tn-mega) .tn-main::-webkit-scrollbar {display:none}
 #site-nav .tn-main h2 {margin:0 0 17px;padding:0;color:#17191b;font-size:23px;line-height:1.4;font-weight:600}
-#site-nav .tn-cards {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--card-gap);padding-bottom:16px}
+#site-nav .tn-cards {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--card-gap);padding-bottom:16px}
 #site-nav .tn-model {position:relative;display:flex;flex-direction:column;align-items:stretch;justify-content:center;overflow:hidden;border-radius:12px;background:var(--card-bg);color:#16181a}
 #site-nav .tn-entry:hover {box-shadow:0 4px 16px rgb(18 35 46 / .07)}
 #site-nav .tn-picture {height:clamp(112px,9.2vw,155px);padding:19px 14% 4px;display:flex;align-items:center;justify-content:center}
 #site-nav .tn-picture img {display:block;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;transition:transform .32s cubic-bezier(.2,.65,.3,1)}
 #site-nav .tn-model:is(:hover,:focus-visible) img {transform:translateY(-2px) scale(1.055)}
-#site-nav .tn-caption strong {font-weight:550}
+#site-nav .tn-caption strong {font-weight:400}
 #site-nav .tn-caption small {font-size:13px;font-weight:400;line-height:1.5;color:#64686c;margin-top:3px}
 #site-nav .tn-caption {min-height:56px;display:grid;place-content:center;text-align:center;font-size:18px;line-height:1.35;font-weight:550;overflow-wrap:anywhere;padding:8px 12px 15px}
 #site-nav .tn-source-dot {position:absolute;top:12px;right:12px;width:8px;height:8px;border-radius:50%;background:#e53935}
@@ -195,7 +195,7 @@
   grid-template-rows:minmax(0,1fr);
 }
 #site-nav .tn-panel:has(.tn-mega) .tn-rail {min-height:0;overflow:auto;padding:0;scrollbar-width:thin}
-#site-nav .tn-panel:has(.tn-mega) :is(.tn-rail,.tn-cards,.tn-index,.tn-directory) {padding-top:26px}
+#site-nav .tn-panel:has(.tn-mega) :is(.tn-rail,.tn-main > .tn-cards,.tn-equipment-groups,.tn-index,.tn-directory) {padding-top:26px}
 #site-nav .tn-panel:has(.tn-mega) .tn-families {display:grid;justify-items:start;gap:14px}
 #site-nav .tn-panel:has(.tn-mega) .tn-families button {width:100%;white-space:nowrap;padding:3px 0;font-size:22px;font-weight:600}
 #site-nav .tn-panel:has(.tn-mega) .tn-families button[aria-pressed=true] {font-weight:700}
@@ -203,9 +203,7 @@
 #site-nav [data-kind=solutions] .tn-directory {grid-template-columns:repeat(3,minmax(0,1fr))}
 #site-nav [data-kind=products] .tn-picture {height:clamp(138px,12.6vw,210px);padding:clamp(18px,1.6vw,30px) 13% 8px}
 #site-nav [data-kind=products] .tn-caption {min-height:64px;padding:4px 12px 18px}
-@media (max-width:1179px) {
-  #site-nav [data-kind=products] .tn-cards {grid-template-columns:repeat(2,minmax(0,1fr))}
-}
+
 @media (max-width:1319px) {
   #site-nav [data-kind=solutions] .tn-directory {grid-template-columns:repeat(2,minmax(0,1fr))}
 }
@@ -223,3 +221,9 @@
   #site-nav .tn-desktop {gap:16px}
   #site-nav .tn-tools {gap:12px;padding-left:16px}
 }
+
+#site-nav .tn-equipment-groups {padding-bottom:16px}
+#site-nav .tn-equipment-group .tn-cards {padding:0}
+
+#site-nav .tn-equipment-group + .tn-equipment-group {margin-top:24px}
+#site-nav .tn-equipment-group h2 {margin:0 0 12px;font-size:18px;font-weight:600;line-height:1.4;text-align:left}

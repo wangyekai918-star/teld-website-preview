@@ -102,7 +102,7 @@
 #site-nav .tn-picture {height:clamp(112px,9.2vw,155px);padding:19px 14% 4px;display:flex;align-items:center;justify-content:center}
 #site-nav .tn-picture img {display:block;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;transition:transform .32s cubic-bezier(.2,.65,.3,1)}
 #site-nav .tn-model:is(:hover,:focus-visible) img {transform:translateY(-2px) scale(1.055)}
-#site-nav .tn-caption strong {font-weight:550}
+#site-nav .tn-caption strong {font-weight:400}
 #site-nav .tn-caption small {font-size:13px;font-weight:400;line-height:1.5;color:#64686c;margin-top:3px}
 #site-nav .tn-caption {min-height:56px;display:grid;place-content:center;text-align:center;font-size:18px;line-height:1.35;font-weight:550;overflow-wrap:anywhere;padding:8px 12px 15px}
 #site-nav .tn-source-dot {position:absolute;top:12px;right:12px;width:8px;height:8px;border-radius:50%;background:#e53935}
@@ -325,3 +325,6 @@ html.mobile-menu-open {overflow:hidden;overscroll-behavior:none}
 @media (prefers-reduced-motion:reduce) {
   #site-nav .tn-families::before {transition:none}
 }
+
+#site-nav .tn-equipment-group + .tn-equipment-group {margin-top:24px}
+#site-nav .tn-equipment-group h2 {margin:0 0 12px;font-size:18px;font-weight:600;line-height:1.4;text-align:left}
