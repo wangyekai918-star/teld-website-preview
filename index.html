@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>特来电官网</title>
+<script>
+const pages = new Map(Object.entries({
+  "home": "首页/index.html",
+  "g3-80": "产品/充电网设备/一体式直流/G3-80kW/index.html",
+  "vpp": "产品/平台软件/虚拟电厂平台/index.html",
+  "solar-storage": "产品/平台软件/光储充放一体化平台/index.html"
+}));
+const params = new URLSearchParams(location.search);
+const target = new URL(pages.get(params.get('product')) || pages.get('home'), location.href);
+params.delete('product');
+target.search = params.toString();
+target.hash = location.hash;
+location.replace(target);
+</script>
+</head>
+<body class="body-class">
+<a href="首页/index.html">特来电首页</a>
+</body>
+</html>

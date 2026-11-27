@@ -1,0 +1,81 @@
+#site-footer {
+  background:#12151a;
+  color:#f5f5f5;
+  text-align:left;
+  scroll-margin-top:60px;
+}
+#site-footer *, #site-footer *::before, #site-footer *::after {box-sizing:border-box}
+#site-footer .foot-inner {
+  width:min(100% - 2 * clamp(108px,8vw,164px),1560px);
+  margin-inline:auto;
+  padding-block:clamp(48px,4.6vw,80px) 28px;
+}
+.foot-main {display:grid;grid-template-columns:minmax(180px,1.45fr) minmax(0,5fr);gap:clamp(28px,4vw,80px)}
+.foot-logo {display:block;width:94px;height:auto}
+#site-footer h2 {color:inherit;margin:0;font-weight:600;font-size:16px;line-height:1.5}
+#site-footer button {border:0;padding:0;background:none;color:inherit;font:inherit;cursor:pointer}
+#site-footer a {color:inherit;text-decoration:none}
+.foot-social {display:flex;align-items:center;gap:2px;margin-left:-9px}
+.foot-social :is(a,button) {
+  display:grid;place-items:center;width:42px;height:42px;border-radius:50%;
+  opacity:.75;transition:opacity .15s,background-color .15s;
+}
+#site-footer .foot-social :is(a,button):is(:hover,:focus-visible,[aria-expanded=true]) {opacity:1;background-color:#303133}
+.foot-social :is(a,button) img {
+  display:block;width:42px;height:42px;
+  transform:translate(var(--social-x,0),var(--social-y,0)) scale(var(--social-scale,1));
+}
+/* Compensate for the transparent margins and different proportions of the brand marks. */
+.foot-wechat {--social-scale:.92;--social-x:-.5px}
+.foot-social a[aria-label="微博"] {--social-scale:1.10;--social-y:.7px}
+.foot-social a[aria-label="抖音"] {--social-scale:.96;--social-x:-.4px}
+.foot-social a[aria-label="小红书"] {--social-scale:.90}
+.foot-wechat {position:relative}
+.foot-social .foot-wechat-link {display:none}
+#foot-qr {position:absolute;bottom:100%;left:0;padding:6px;background:#fff;border-radius:9px;box-shadow:0 6px 24px #0003;z-index:2}
+#foot-qr img {display:block}
+.foot-groups {display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(16px,2vw,42px);padding-top:4px}
+.foot-group ul {display:grid;gap:10px;list-style:none;margin:15px 0 0;padding:0}
+.foot-group h2 button {display:none}
+#site-footer .foot-group li :is(a,button) {font-size:14px;line-height:1.65;color:#bcbec1;transition:color .15s}
+#site-footer .foot-group li :is(a,button):is(:hover,:focus-visible),#site-footer .foot-meta a:is(:hover,:focus-visible) {color:#fff}
+.foot-meta {margin-top:clamp(36px,3.7vw,64px);border-top:1px solid rgb(255 255 255 / 10%);padding-top:22px;font-size:12px;line-height:1.65;color:rgb(255 255 255 / 50%)}
+.foot-docs,.foot-registration {display:flex;align-items:center;flex-wrap:wrap;gap:6px 24px}
+.foot-registration {margin-top:12px}
+.foot-police {display:inline-flex;align-items:center;gap:5px}
+.foot-film {position:fixed;inset:0;margin:auto;width:min(90vw,1050px);max-height:92dvh;border:0;border-radius:12px;padding:0;background:#111;color:#fff}
+.foot-film::backdrop {background:rgb(0 0 0 / 72%)}
+.foot-film .preview-still {width:100%;max-height:82dvh;display:block;aspect-ratio:16 / 9}
+#site-footer .foot-film button {position:absolute;top:10px;right:10px;z-index:1;border-radius:50%;width:36px;height:36px;background:#252525d9;color:white;font-size:24px;line-height:1}
+
+@media (hover:none), (pointer:coarse) {
+  .foot-wechat button {display:none}
+  .foot-social .foot-wechat-link {display:grid}
+}
+
+@media (prefers-reduced-motion:reduce) {
+  #site-footer *,#site-footer *::after {transition:none}
+}
+
+#site-footer .foot-inner {width:auto;padding:36px 24px max(28px,env(safe-area-inset-bottom))}
+.foot-main {display:block}
+.foot-brand {display:flex;align-items:center;justify-content:space-between;gap:8px}
+.foot-logo {width:82px;min-width:0}
+.foot-social {flex:none;margin-left:0}
+.foot-social :is(a,button) {width:44px;height:44px}
+.foot-groups {display:block;padding-top:20px}
+.foot-group:not(:last-child) {border-bottom:1px solid #37383a}
+.foot-group h2 span {display:none}
+#site-footer .foot-group h2 button {display:flex;align-items:center;justify-content:space-between;width:100%;min-height:52px;text-align:left}
+.foot-group h2 button::after {content:"";width:8px;height:8px;margin-right:3px;border:solid #a6a7aa;border-width:0 1.5px 1.5px 0;transform:rotate(45deg);transition:transform 240ms cubic-bezier(.25,.1,.25,1)}
+.foot-group h2 button[aria-expanded=true]::after {transform:rotate(225deg)}
+.foot-fold {display:grid;grid-template-rows:0fr;transition:grid-template-rows 240ms cubic-bezier(.25,.1,.25,1)}
+.foot-group.is-open .foot-fold {grid-template-rows:1fr}
+.foot-fold ul {min-height:0;overflow:hidden;align-content:start;margin:0;gap:0}
+.foot-fold li:last-child {margin-bottom:16px}
+@media (prefers-reduced-motion:reduce) {
+  .foot-fold,.foot-group h2 button::after {transition:none}
+}
+#site-footer .foot-group li :is(a,button) {display:flex;align-items:center;min-height:44px;padding-block:4px;font-size:15px}
+.foot-meta {margin-top:0}
+.foot-docs,.foot-registration {gap:7px 16px}
