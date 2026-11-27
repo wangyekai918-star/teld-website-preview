@@ -6,7 +6,7 @@
 .platform-detail :is(h1,h2,h3,h4,p,figure,dl,dd) { margin:0;color:inherit }
 .platform-wrap { width:min(1200px,calc(100% - 2 * clamp(28px,6vw,96px)));margin-inline:auto }
 .platform-section { padding-block:clamp(56px,5.8vw,100px);scroll-margin-top:60px }
-.platform-section h2 { text-align:center;font-size:clamp(34px,3.5vw,54px);font-weight:650;line-height:1.2;letter-spacing:-.04em }
+.platform-section h2 { text-align:center;font-size:clamp(34px,3.5vw,48px);font-weight:650;line-height:1.2;letter-spacing:-.04em }
 .surface-soft,.platform-consult { background:var(--soft) }
 .platform-hero { background:#fff }
 .hero-grid { display:grid;grid-template-columns:1.06fr 1fr;align-items:center;gap:clamp(24px,4vw,72px);padding-block:clamp(64px,7vw,116px) }
